@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-0e99f545","path":"/vulnhub/%E7%BD%91%E7%BB%9C%E8%AE%BE%E5%A4%87/%E9%BD%90%E6%B2%BB%E5%A0%A1%E5%9E%92%E6%9C%BA/","title":"齐治堡垒机","lang":"zh-CN","frontmatter":{"title":"齐治堡垒机","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};

@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-d6ceb13c","path":"/vulnhub/WEB%E5%BA%94%E7%94%A8/WiseGiga/","title":"Wise Giga","lang":"zh-CN","frontmatter":{"title":"Wise Giga","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};

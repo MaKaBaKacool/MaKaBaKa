@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-73c1262d","path":"/vulnhub/WEB%E5%BA%94%E7%94%A8/TamronOS/","title":"Tamron O S","lang":"zh-CN","frontmatter":{"title":"Tamron O S","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};

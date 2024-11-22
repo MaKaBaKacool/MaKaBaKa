@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-7f6b709d","path":"/vulnhub/%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/Fastjson/","title":"Fastjson","lang":"zh-CN","frontmatter":{"title":"Fastjson","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};

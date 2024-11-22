@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-6b4b4e45","path":"/vulnhub/OA%E4%BA%A7%E5%93%81/%E8%93%9D%E5%87%8COA/","title":"蓝凌 O A","lang":"zh-CN","frontmatter":{"title":"蓝凌 O A","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};

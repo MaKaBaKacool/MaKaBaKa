@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-ec273a18","path":"/vulnhub/WEB%E5%BA%94%E7%94%A8/NginxWebUI/","title":"Nginx Web U I","lang":"zh-CN","frontmatter":{"title":"Nginx Web U I","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};

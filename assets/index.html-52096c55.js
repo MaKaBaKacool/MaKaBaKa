@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-6d452218","path":"/vulnhub/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%A7%E5%93%81/OpenTSDB/","title":"Open T S D B","lang":"zh-CN","frontmatter":{"title":"Open T S D B","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};

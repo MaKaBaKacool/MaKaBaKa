@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-2a4ac917","path":"/vulnhub/%E5%85%B6%E4%BB%96/Microsoft/","title":"Microsoft","lang":"zh-CN","frontmatter":{"title":"Microsoft","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};

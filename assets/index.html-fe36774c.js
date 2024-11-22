@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-5b0b52ec","path":"/vulnhub/WEB%E5%BA%94%E7%94%A8/1039%E5%AE%B6%E6%A0%A1%E9%80%9A/","title":"1039家校通","lang":"zh-CN","frontmatter":{"title":"1039家校通","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};

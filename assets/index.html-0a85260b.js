@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-2df5c814","path":"/vulnhub/CMS%E6%A1%86%E6%9E%B6/%E7%A6%85%E9%81%93/","title":"禅道","lang":"zh-CN","frontmatter":{"title":"禅道","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};

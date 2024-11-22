@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-a28f8aac","path":"/vulnhub/OA%E4%BA%A7%E5%93%81/%E8%87%B4%E8%BF%9COA/","title":"致远 O A","lang":"zh-CN","frontmatter":{"title":"致远 O A","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};

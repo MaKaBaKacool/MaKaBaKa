@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-e87e399a","path":"/vulnhub/WEB%E5%BA%94%E7%94%A8/%E9%87%91%E8%9D%B6/","title":"金蝶","lang":"zh-CN","frontmatter":{"title":"金蝶","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};

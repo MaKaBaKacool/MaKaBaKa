@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-a0615aa4","path":"/vulnhub/OA%E4%BA%A7%E5%93%81/%E9%87%91%E8%9D%B6OA/","title":"金蝶 O A","lang":"zh-CN","frontmatter":{"title":"金蝶 O A","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};

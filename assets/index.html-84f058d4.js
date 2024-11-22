@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-957e22f8","path":"/vulnhub/WEB%E5%BA%94%E7%94%A8/%E7%94%A8%E5%8F%8B/","title":"用友","lang":"zh-CN","frontmatter":{"title":"用友","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};

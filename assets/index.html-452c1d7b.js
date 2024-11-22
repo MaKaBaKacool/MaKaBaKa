@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-d84a28c8","path":"/vulnhub/%E5%BC%80%E5%8F%91%E8%AF%AD%E8%A8%80/PHP/","title":"P H P","lang":"zh-CN","frontmatter":{"title":"P H P","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};

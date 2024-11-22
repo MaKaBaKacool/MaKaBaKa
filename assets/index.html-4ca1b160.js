@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-ded5c87c","path":"/vulnhub/%E7%BD%91%E7%BB%9C%E8%AE%BE%E5%A4%87/%E5%AE%8F%E7%94%B5/","title":"宏电","lang":"zh-CN","frontmatter":{"title":"宏电","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};

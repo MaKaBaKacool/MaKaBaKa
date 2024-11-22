@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-795211f0","path":"/vulnhub/CMS%E6%A1%86%E6%9E%B6/PbootCMS/","title":"Pboot C M S","lang":"zh-CN","frontmatter":{"title":"Pboot C M S","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};

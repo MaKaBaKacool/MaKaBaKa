@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-59dde578","path":"/vulnhub/%E4%B8%AD%E9%97%B4%E4%BB%B6/SaltStack/","title":"Salt Stack","lang":"zh-CN","frontmatter":{"title":"Salt Stack","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};

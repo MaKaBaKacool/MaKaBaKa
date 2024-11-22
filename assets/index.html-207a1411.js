@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-48da4a4e","path":"/vulnhub/OA%E4%BA%A7%E5%93%81/%E9%80%9A%E8%BE%BEOA/","title":"通达 O A","lang":"zh-CN","frontmatter":{"title":"通达 O A","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};
